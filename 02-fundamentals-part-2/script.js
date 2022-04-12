@@ -684,7 +684,7 @@ for (let i=0; i<personObj2.length; i++) {
     console.log(personObj2[i], typeof personObj2[i]);
 }
 
-*/
+
 
 const personObj2 = [
     'Jonas', 
@@ -702,3 +702,123 @@ for (let i=0; i<personObj2.length; i++) {
 }
 
 
+
+///// LOOPING AN ARRAY BACKWARDS /////
+
+const personArr = [
+    'Jonas', 
+    'Schmedtmann', 
+    1991,
+    'teacher',
+    ['Michael', 'Steven', 'Peter'],
+    true
+];
+
+for (let i=personArr.length-1; i>=0; i--) {
+    
+    console.log(personArr[i], typeof personArr[i]);
+}
+
+
+////// LOOPS WITHIN LOOPS //////
+
+// We have a routine of three exercises with each exercise being repeated (or looped 5 times)
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`============ Starting exercise ${exercise}`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`============ Exercise ${exercise} Lifting weights ${rep}`)
+    }
+}
+
+
+///// THE WHILE LOOP /////
+
+// A for loop has 3 components: Start, Condition and counter.
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep}`);
+}
+
+// A while loop only has one component, a condition and will run until the condition is not met. However we still need to define start of the loop and counter. We define the start outside of the loop and before the loop. The counter we increment after the loop has performed its action but within the loop curly braces.
+let rep = 1;
+while (rep <=10) {
+    console.log(`swimming repetition ${rep}`);
+    rep ++;
+}
+
+
+
+///// DICE ROLL WHILE LOOP /////
+
+// THe dice will continue to roll until it lands on 6.
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !==6) {
+    console.log(`You Rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end...you rolled a 6');
+}
+
+
+
+/* 
+Coding Challenge 4
+
+Lets improve the tip calculator using loops!
+
+1. Create an array 'bills' containing all 10 test bill values;
+
+2. Create empty arrays for the tips and totals.
+
+3. Use the 'calcTip' function we wrote before to calculate tips and total values.
+Use a for loop to perform the 10 calculations.
+
+BONUS. Write a function called 'calcAvg' which takes an array called 'arr' as an argument. THis function calculates the average of all numbers in the given array.
+
+TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86, 52
+
+*/
+
+// 1 bills array
+const billsArr = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+// 2 Empty tips and totals arrays
+const tipsArr = [];
+const totalsArr = [];
+
+
+// 3. CalcTip function and for loop calculator
+const calcTip = function (bill) {
+    return bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+}
+
+for (let i=0; i<billsArr.length; i++) {
+    tipsArr.push(calcTip(billsArr[i]));
+    totalsArr.push(calcTip(billsArr[i] + [i]));
+    console.log(`=== BILL: ${billsArr[i]} TIP: ${tipsArr[i]} TOTAL: ${totalsArr[i]}`);
+}
+
+// OR
+
+for (let i=0; i<billsArr.length; i++) {
+    const tip = calcTip(billsArr[i]);
+    tipsArr.push(tip);
+    totalsArr.push(tip + billsArr[i]);
+}
+console.log(billsArr, tipsArr, totalsArr);
+
+// BONUS calculate averages
+const calcAvg = function(arr) {
+    let sum = 0;
+    for (let i=0; i<arr.length; i++) {
+        // sum = sum + arr[i];
+        sum += arr[i];
+    }
+    return sum/arr.length;
+}
+
+console.log(`BILL AVERAGE: ${calcAvg(billsArr)} 
+TIP AVERAGE: ${calcAvg(tipsArr)} 
+TOTAL AVERAGE: ${calcAvg(totalsArr)}`);

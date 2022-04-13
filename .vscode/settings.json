@@ -1,0 +1,10 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "onWindowChange",
+  "editor.tabSize": 3,
+  "editor.formatOnSave": true,
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.tabCompletion": "on",
+  "editor.snippetSuggestions": "top",
+  "typescript.disableAutomaticTypeAcquisition": false
+}

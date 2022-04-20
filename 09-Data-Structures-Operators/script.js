@@ -256,6 +256,8 @@ restaurant.orderDelivery({
 
 */
 
+/*
+
 // DESTRUCTURING AN OBJECT EXAMPLE 3 - DE-STRUCTURING FUNCTION WITH DEFAULT VALUES
 
 const restaurant = {
@@ -292,3 +294,123 @@ restaurant.orderDelivery({
   address: 'via del Sole, 21',
   starterIndex: 2,
 });
+
+*/
+
+/*
+
+// THE SPREAD OPERATOR
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const goodNewArr = [1, 2, ...arr];
+console.log(goodNewArr);
+
+const newArr = [1, 2, arr];
+console.log(newArr);
+
+console.log(...goodNewArr);
+
+
+*/
+
+/*
+
+// USING THE SPREAD OPERATOR TO INSERT INTO EXISTING ARRAY
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+};
+
+// append to new copy of array
+const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+console.log(newMenu);
+
+// copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+// join two arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Itterables: Arrays, Strings, Maps, Sets, NOT Objects
+const str = 'jonas';
+const letters = [...str, ' ', 's.'];
+console.log(letters);
+console.log(...str);
+
+*/
+
+// USING THE SPREAD OPERATOR - EXAMPLE 1
+
+/* 
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+};
+
+const ingredients = [
+  prompt("let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+restaurant.orderPasta(...ingredients);
+
+*/
+
+/*
+
+// USING THE SPREAD OPERATOR - SINCE ES6 2016 RELEASE THE SPREAD OPERTOR WORKS ON OBJECTS
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+};
+
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+
+*/
+
+/*
+
+// THE SPREAD OPERATOR CAN BE USED TO CLONE AN OBJECT
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+};
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+*/

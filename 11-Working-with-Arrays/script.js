@@ -883,7 +883,7 @@ const dogs = [
 
 // 1.
 dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
-
+// console.log(dogs);
 // 2.
 const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
 console.log(dogSarah);
@@ -916,13 +916,13 @@ console.log(dogs.some(dog => dog.curFood === dog.recFood));
 
 // 6.
 // current > (recommended * 0.90) && current < (recommended * 1.10)
-const checkEatingOkay = dog =>
+const checkEatingOk = dog =>
   dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
 
-console.log(dogs.some(checkEatingOkay));
+console.log(dogs.some(checkEatingOk));
 
 // 7.
-console.log(dogs.filter(checkEatingOkay));
+console.log(dogs.filter(checkEatingOk));
 
 // 8.
 // sort it by recommended food portion in an ascending order [1,2,3]

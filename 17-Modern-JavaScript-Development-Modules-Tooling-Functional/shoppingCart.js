@@ -1,5 +1,10 @@
 // shoppingCart.js: Exporting Module
 
+// Blocking code top level await
+// console.log('Start Fetching Users');
+// await fetch('https://jsonplaceholder.typicode.com/users');
+// console.log('Finish fecthing users');
+
 const shippingCost = 10;
 export const cart = [];
 

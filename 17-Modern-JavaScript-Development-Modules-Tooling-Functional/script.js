@@ -11,11 +11,11 @@
 // add('pizza', 2);
 
 // Mixing named and default imports
-// import add, { cart } from './shoppingCart.js';
-// add('pizza', 2);
-// add('bread', 5);
-// add('tomatoes', 4);
-// console.log(cart);
+import add, { cart } from './shoppingCart.js';
+add('pizza', 2);
+add('bread', 5);
+add('tomatoes', 4);
+console.log(cart);
 
 // console.log('start fetching');
 // const res = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -89,6 +89,8 @@ const {addToCart} = require('./shoppingCart.js');
 
 import cloneDeep from '../node_modules/lodash-es/cloneDeep.js';
 
+import 'core-js';
+
 const state = {
   cart: [
     { product: 'bread', quantity: 5 },
@@ -101,3 +103,7 @@ const stateDeepClone = cloneDeep(state);
 state.user.loggedIn = false;
 console.log(stateClone);
 console.log(stateDeepClone);
+
+if (module.hot) {
+  module.hot.accept();
+}

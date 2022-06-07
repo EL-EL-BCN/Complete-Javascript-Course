@@ -1,15 +1,26 @@
-// view.js
-import icons from 'url:../../img/icons.svg';
+import icons from 'url:../../img/icons.svg'; // Parcel 2
 
-export default class view {
+export default class View {
   _data;
 
-  render(data) {
+  /**
+   * Render the received object to the DOM
+   * @param {object | object[]} data The data to be rendered (e.g. recipe)
+   * @param {boolean} [render=true] if false, create markup string instead of rendering to the DOM
+   * @returns {undefined | string} a markup string is returned if fender is false
+   * @this {object} view instance
+   * @author Elliott Farmer
+   * @todo There are no items pending
+   */
+
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
     this._data = data;
     const markup = this._generateMarkup();
+
+    if (!render) return markup;
 
     this._clear();
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
@@ -32,11 +43,11 @@ export default class view {
         !newEl.isEqualNode(curEl) &&
         newEl.firstChild?.nodeValue.trim() !== ''
       ) {
-        // console.log('💥💥💥', newEl.firstChild.nodeValue.trim());
+        // console.log('💥', newEl.firstChild.nodeValue.trim());
         curEl.textContent = newEl.textContent;
       }
 
-      // Updates changed ATTRIBUTES
+      // Updates changed ATTRIBUES
       if (!newEl.isEqualNode(curEl))
         Array.from(newEl.attributes).forEach(attr =>
           curEl.setAttribute(attr.name, attr.value)

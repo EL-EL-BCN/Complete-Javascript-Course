@@ -2,10 +2,10 @@
   "name": "18-foryify-app-building-a-modern-application",
   "version": "1.0.0",
   "description": "forkify",
-  "main": "index.js",
+  "default": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build.html"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Elliott Farmer",
   "license": "ISC",
